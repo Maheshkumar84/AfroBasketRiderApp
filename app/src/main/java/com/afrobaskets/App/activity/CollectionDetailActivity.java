@@ -90,9 +90,12 @@ public class CollectionDetailActivity extends AppCompatActivity {
         Type type = new TypeToken<List<OrderCollectionBean>>() {}.getType();
          orderCollectionBeen = gson.fromJson(getIntent().getStringExtra("data"), type);
          position=Integer.parseInt(getIntent().getStringExtra("position"));
-        collectiondetailactivityBinding.phoneNumber.setText(orderCollectionBeen.get(position).getUserDetailArrayList().get(0).getMobile_number());
+
+             collectiondetailactivityBinding.phoneNumber.setText(orderCollectionBeen.get(position).getUserDetailArrayList().get(0).getMobile_number());
+
         collectiondetailactivityBinding.shippingDetails.setText(Html.fromHtml("<b>Delivery Address</b><br>"+orderCollectionBeen.get(position).getShippingAddressListBeansArrayList().get(0).getAddress_nickname()+"<br>"+orderCollectionBeen.get(position).getShippingAddressListBeansArrayList().get(0).getHouse_number()+","+orderCollectionBeen.get(position).getShippingAddressListBeansArrayList().get(0).getStreet_detail()+","+orderCollectionBeen.get(position).getShippingAddressListBeansArrayList().get(0).getCity_name()));
         String emailString =orderCollectionBeen.get(position).getUserDetailArrayList().get(0).getEmail();
+
         collectiondetailactivityBinding.mail.setText(Html.fromHtml(emailString));
 
         if(getIntent().hasExtra("type"))
